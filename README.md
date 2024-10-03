@@ -115,6 +115,8 @@ Note: The default paths for configuration and state files might have changed. Ma
 
 ### Filternames
 - site
+- domain
+- domain_fallback_site
 - firmware_release
 - firstseen
 - lastseen

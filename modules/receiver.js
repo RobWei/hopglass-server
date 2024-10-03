@@ -160,6 +160,14 @@ module.exports = function (observer, configData) {
       return _.pickBy(data, function(o) {
         return _.includes(_.split(query.value, ','), _.get(o, 'nodeinfo.system.site_code', 'unknown'))
       })
+    case 'domain':
+      return _.pickBy(data, function(o) {
+        return _.includes(_.split(query.value, ','), _.get(o, 'nodeinfo.system.domain_code', 'unknown'))
+      })
+    case 'domain_fallback_site':
+      return _.pickBy(data, function(o) {
+        return _.includes(_.split(query.value, ','), _.get(o, 'nodeinfo.system.domain_code', _.get(o, 'nodeinfo.system.site_code', 'unknown')))
+      })
     case 'firmware_release':
       return _.pickBy(data, function(o) {
         return _.includes(_.split(query.value, ','), _.get(o, 'nodeinfo.software.firmware.release', 'unknown'))
